@@ -53,15 +53,6 @@ function DetailingCard({ service }) {
         <p className="mt-1 text-xs leading-relaxed text-text-muted sm:text-sm">
           {service.description}
         </p>
-        <a
-          href={getWhatsAppUrl(config.whatsapp.quoteMessage(service.title))}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-accent transition-colors hover:text-accent-hover sm:text-sm"
-        >
-          {config.services.serviceCta}
-          <ArrowUpRight size={14} aria-hidden="true" />
-        </a>
       </div>
     </article>
   );
@@ -111,6 +102,17 @@ export default function Services() {
               {detailing.items.map((service) => (
                 <DetailingCard key={service.title} service={service} />
               ))}
+            </div>
+            <div className="mt-10 text-center">
+              <a
+                href={getWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-8 py-4 text-base font-bold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent-hover hover:shadow-accent/40 active:scale-95"
+              >
+                {config.services.serviceCta}
+                <ArrowUpRight size={20} aria-hidden="true" />
+              </a>
             </div>
           </div>
         )}
