@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "espacojanainaborburema.com.br"
+        }
+      ],
+      "destination": "https://www.espacojanainaborburema.com.br/:path*",
+      "permanent": true
+    }
+  ]
+}

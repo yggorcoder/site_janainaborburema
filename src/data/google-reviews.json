@@ -1,0 +1,43 @@
+{
+  "fetchedAt": "2026-07-07T22:40:00.000Z",
+  "rating": 5,
+  "reviewCount": 16,
+  "mapsUrl": "https://www.google.com/maps/place/Espa%C3%A7o+Janaina+Borburema+-+Pilates+e+Fisioterapia+Integrativa/@-5.8706783,-35.1871769,897m/data=!3m2!1e3!4b1!4m6!3m5!1s0x7b2ff2e2bcccbab:0x3fb8978d38f84a31!8m2!3d-5.8706783!4d-35.1845966!16s%2Fg%2F11g8878j_h",
+  "items": [
+    {
+      "name": "Priscila Medeiros",
+      "text": "Espaço maravilhoso e ambiente muito acolhedor. Além disso, todas as profissionais que atendem no espaço são super competentes.",
+      "rating": 5,
+      "date": "2026-04-01",
+      "source": "google"
+    },
+    {
+      "name": "Flávia Letícia",
+      "text": "O atendimento no pilates foi excelente, especialmente pela fisioterapeuta Thalyta Ela é muito atenciosa, explica bem os exercícios e está sempre corrigindo a postura com cuidado. O ambiente é organizado e acolhedor, e as aulas são bem conduzidas, respeitando o ritmo de cada aluno. Me senti muito confortável e satisfeita com o atendimento.",
+      "rating": 5,
+      "date": "2026-04-01",
+      "source": "google"
+    },
+    {
+      "name": "Nayara Helen",
+      "text": "Ótimo espaço com profissionais de excelência, Thalyta sempre muito cuidadosa e dedicada 👏🏻",
+      "rating": 5,
+      "date": "2026-04-01",
+      "source": "google"
+    },
+    {
+      "name": "Fabyolla Lemos",
+      "text": "Tive o prazer de conhecer esse espaço incrível e só posso dizer: que energia maravilhosa! Tudo é pensado com muito cuidado, acolhimento e profissionalismo.\n\nE não poderia deixar de falar de uma profissional maravilhosa: Thalyta Costa, fisioterapeuta dedicada, atenciosa e extremamente competente, que coloca amor e excelência em tudo o que faz.\n\nIndico e indico muito!!!",
+      "rating": 5,
+      "date": "2026-04-01",
+      "source": "google"
+    },
+    {
+      "name": "Renata Barros",
+      "text": "Profissionais excelentes e ambiente acolhedor!",
+      "rating": 5,
+      "date": "2026-04-01",
+      "source": "google"
+    }
+  ]
+}
