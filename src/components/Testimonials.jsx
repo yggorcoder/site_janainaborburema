@@ -1,4 +1,5 @@
-import { ExternalLink, Quote, Star } from "lucide-react";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, ExternalLink, Quote, Star } from "lucide-react";
 import googleReviews from "../data/google-reviews.json";
 import { config } from "../lib/config";
 
@@ -26,6 +27,38 @@ function formatReviewDate(isoDate) {
   }).format(new Date(isoDate));
 }
 
+function TestimonialCard({ item }) {
+  return (
+    <article className="flex w-full max-w-2xl flex-col rounded-2xl border border-graphite-border bg-graphite-card p-6 sm:p-8">
+      <div className="flex items-center justify-between gap-3">
+        <Quote size={28} className="text-accent/60" aria-hidden="true" />
+        {item.source === "google" && (
+          <span className="rounded-full border border-graphite-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
+            Google
+          </span>
+        )}
+      </div>
+
+      {item.rating && (
+        <div className="mt-4">
+          <StarRating rating={item.rating} />
+        </div>
+      )}
+
+      <blockquote className="mt-4 flex-1 whitespace-pre-line text-sm leading-relaxed text-text-muted sm:text-base">
+        &ldquo;{item.text}&rdquo;
+      </blockquote>
+
+      <div className="mt-6">
+        <p className="text-sm font-semibold text-ink">{item.name}</p>
+        {item.date && (
+          <p className="mt-1 text-xs text-text-muted">{formatReviewDate(item.date)}</p>
+        )}
+      </div>
+    </article>
+  );
+}
+
 export default function Testimonials() {
   const { testimonials } = config;
   const google = testimonials.google ?? {};
@@ -37,10 +70,19 @@ export default function Testimonials() {
   const items =
     googleReviews.items?.length > 0 ? googleReviews.items : testimonials.items ?? [];
 
+  const [activeIndex, setActiveIndex] = useState(0);
+  const total = items.length;
+
+  const goTo = (index) => {
+    setActiveIndex((index + total) % total);
+  };
+
+  const current = items[activeIndex];
+
   return (
     <section
       id="depoimentos"
-      className="border-t border-graphite-border py-20 sm:py-28"
+      className="border-t border-graphite-border py-16 sm:py-24"
       aria-labelledby="testimonials-title"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -76,43 +118,49 @@ export default function Testimonials() {
         </div>
 
         {items.length > 0 ? (
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {items.map((item) => (
-              <article
-                key={`${item.name}-${item.text.slice(0, 24)}`}
-                className="flex flex-col rounded-2xl border border-graphite-border bg-graphite-card p-6 sm:p-8"
+          <div className="relative mt-12" aria-live="polite">
+            <div className="flex items-center justify-center gap-3 sm:gap-6">
+              <button
+                type="button"
+                onClick={() => goTo(activeIndex - 1)}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-graphite-border bg-graphite-card text-accent shadow-sm transition-colors hover:border-accent hover:bg-accent hover:text-white sm:h-12 sm:w-12"
+                aria-label="Depoimento anterior"
               >
-                <div className="flex items-center justify-between gap-3">
-                  <Quote size={28} className="text-accent/60" aria-hidden="true" />
-                  {item.source === "google" && (
-                    <span className="rounded-full border border-graphite-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-text-muted">
-                      Google
-                    </span>
-                  )}
-                </div>
+                <ChevronLeft size={24} aria-hidden="true" />
+              </button>
 
-                {item.rating && (
-                  <div className="mt-4">
-                    <StarRating rating={item.rating} />
-                  </div>
-                )}
+              <TestimonialCard key={`${current.name}-${activeIndex}`} item={current} />
 
-                <blockquote className="mt-4 flex-1 whitespace-pre-line text-sm leading-relaxed text-text-muted sm:text-base">
-                  &ldquo;{item.text}&rdquo;
-                </blockquote>
+              <button
+                type="button"
+                onClick={() => goTo(activeIndex + 1)}
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-graphite-border bg-graphite-card text-accent shadow-sm transition-colors hover:border-accent hover:bg-accent hover:text-white sm:h-12 sm:w-12"
+                aria-label="Próximo depoimento"
+              >
+                <ChevronRight size={24} aria-hidden="true" />
+              </button>
+            </div>
 
-                <div className="mt-6">
-                  <p className="text-sm font-semibold text-ink">{item.name}</p>
-                  {item.date && (
-                    <p className="mt-1 text-xs text-text-muted">{formatReviewDate(item.date)}</p>
-                  )}
-                </div>
-              </article>
-            ))}
+            <div className="mt-6 flex items-center justify-center gap-2">
+              {items.map((item, index) => (
+                <button
+                  key={`${item.name}-${item.text.slice(0, 24)}`}
+                  type="button"
+                  onClick={() => goTo(index)}
+                  className={`h-2.5 rounded-full transition-all ${
+                    index === activeIndex
+                      ? "w-8 bg-accent"
+                      : "w-2.5 bg-graphite-border hover:bg-accent-shine"
+                  }`}
+                  aria-label={`Ir para depoimento ${index + 1}`}
+                  aria-current={index === activeIndex ? "true" : undefined}
+                />
+              ))}
+            </div>
           </div>
         ) : (
           mapsUrl && (
-            <div className="mt-14 rounded-2xl border border-dashed border-graphite-border bg-graphite-card/40 px-6 py-10 text-center">
+            <div className="mt-12 rounded-2xl border border-dashed border-graphite-border bg-graphite-card/40 px-6 py-10 text-center">
               <p className="text-base text-text-muted sm:text-lg">
                 As avaliações do Google serão exibidas aqui automaticamente.
               </p>
