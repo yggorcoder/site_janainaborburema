@@ -1,16 +1,17 @@
 import { config as rawConfig } from "../../business.config.js";
 import logoImage from "../assets/images/logo.jpeg";
-import heroImage from "../assets/images/hero.jpg";
+import heroImage from "../assets/images/hero-bg.jpeg";
 import pilatesClinicoImage from "../assets/images/pilates-clinico.jpeg";
 import fisioterapiaIntegrativaImage from "../assets/images/fisioterapia-integrativa.jpeg";
-import pilates3Image from "../assets/images/pilates-3.jpg";
+import pilatesSoloAparelhosImage from "../assets/images/pilates-solo-aparelhos.jpeg";
+import contactBgImage from "../assets/images/contact-bg.jpeg";
 import galeria1 from "../assets/images/gallery/galeria-1.jpeg";
 import galeria2 from "../assets/images/gallery/galeria-2.jpeg";
 import galeria3 from "../assets/images/gallery/galeria-3.jpeg";
 import galeria4 from "../assets/images/gallery/galeria-4.jpeg";
 import galeria5 from "../assets/images/gallery/galeria-5.jpeg";
 
-const serviceImages = [pilatesClinicoImage, fisioterapiaIntegrativaImage, pilates3Image];
+const serviceImages = [pilatesClinicoImage, fisioterapiaIntegrativaImage, pilatesSoloAparelhosImage];
 const galleryImages = [galeria1, galeria2, galeria3, galeria4, galeria5];
 
 export const config = {
@@ -36,7 +37,7 @@ export const config = {
   },
   contact: {
     ...rawConfig.contact,
-    image: pilates3Image,
+    image: contactBgImage,
   },
 };
 

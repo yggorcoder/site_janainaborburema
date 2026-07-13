@@ -239,7 +239,7 @@ export const config = {
   // ── Contato ─────────────────────────────────────────────────
   contact: {
     badge: "Atendimento Humanizado",
-    title: "Pronta para dar o primeiro passo?",
+    title: "Pronto(a) para dar o primeiro passo?",
     text: "Devolva autonomia, segurança e qualidade de vida através do movimento. Entre em contato pelo WhatsApp e agende sua aula com nossa equipe de fisioterapeutas.",
     cta: "Chamar no WhatsApp",
     image: "/images/pilates-3.jpg",
