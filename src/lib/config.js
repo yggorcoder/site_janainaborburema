@@ -1,7 +1,8 @@
 import { config as rawConfig } from "../../business.config.js";
 import logoImage from "../assets/images/logo.jpeg";
 import heroImage from "../assets/images/hero.jpg";
-import pilates2Image from "../assets/images/pilates-2.jpg";
+import pilatesClinicoImage from "../assets/images/pilates-clinico.jpeg";
+import fisioterapiaIntegrativaImage from "../assets/images/fisioterapia-integrativa.jpeg";
 import pilates3Image from "../assets/images/pilates-3.jpg";
 import galeria1 from "../assets/images/gallery/galeria-1.jpeg";
 import galeria2 from "../assets/images/gallery/galeria-2.jpeg";
@@ -9,7 +10,7 @@ import galeria3 from "../assets/images/gallery/galeria-3.jpeg";
 import galeria4 from "../assets/images/gallery/galeria-4.jpeg";
 import galeria5 from "../assets/images/gallery/galeria-5.jpeg";
 
-const serviceImages = [galeria3, pilates2Image, pilates3Image];
+const serviceImages = [pilatesClinicoImage, fisioterapiaIntegrativaImage, pilates3Image];
 const galleryImages = [galeria1, galeria2, galeria3, galeria4, galeria5];
 
 export const config = {

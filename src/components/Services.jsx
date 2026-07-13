@@ -9,7 +9,7 @@ function ServiceCard({ service }) {
         <img
           src={service.image}
           alt={`${service.alt} - ${config.name}`}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
         <span className="absolute left-4 top-4 rounded-full bg-ink/75 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-sm">

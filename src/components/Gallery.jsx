@@ -39,13 +39,13 @@ export default function Gallery() {
               <ChevronLeft size={24} aria-hidden="true" />
             </button>
 
-            <figure className="flex min-h-[280px] w-full max-w-3xl flex-col items-center justify-center sm:min-h-[420px]">
-              <div className="overflow-hidden rounded-2xl border border-graphite-border bg-graphite-card p-2 shadow-lg shadow-accent/10 sm:p-3">
+            <figure className="flex w-full max-w-3xl flex-col items-center justify-center">
+              <div className="w-[85%] overflow-hidden rounded-2xl border border-graphite-border bg-graphite-card p-2 shadow-lg shadow-accent/10 sm:p-3">
                 <img
                   key={current.alt}
                   src={current.src}
                   alt={`${current.alt} - ${config.name}`}
-                  className="mx-auto max-h-[55vh] w-[85%] rounded-xl object-contain"
+                  className="mx-auto max-h-[min(55vh,640px)] w-full rounded-xl object-contain"
                   loading="lazy"
                 />
               </div>
